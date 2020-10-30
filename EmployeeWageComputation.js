@@ -1,13 +1,18 @@
-const IS_PRESENT = 1
+const IS_FULL_TIME = 1
+const IS_PART_TIME = 2
 const WAGE_PER_HOUR = 20
 
 function checkEmployerrAttendence(){
-    var attendaceStatus = Math.floor(Math.random() * 2);
+    var attendaceStatus = Math.floor(Math.random() * 3);
     var employeeWorkingHours
 
-    if(attendaceStatus == IS_PRESENT){
-        console.log("Employee is PRESENT..!!")
+    if(attendaceStatus == IS_FULL_TIME){
+        console.log("Employee is FULL TIME..!!")
         employeeWorkingHours = 8
+    }
+    else if(attendaceStatus == IS_PART_TIME){
+        console.log("Employee is PART TIME..!!")
+        employeeWorkingHours = 4
     }
     else{
         console.log("Employee is ABSENT...!!")
