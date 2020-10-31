@@ -2,6 +2,7 @@ const IS_FULL_TIME = 1
 const IS_PART_TIME = 2
 const WAGE_PER_HOUR = 20
 const NUM_OF_WORKING_DAYS = 20 
+const MAXIMUM_WORKING_HOURS = 100
 
 function checkEmployerrAttendence(){
     var attendaceStatus = Math.floor(Math.random() * 3);
@@ -30,12 +31,13 @@ function calculateEmployeeWage(workHrs){
 
 day = 0
 totalWage = 0
-while (day< NUM_OF_WORKING_DAYS)
+totalWorkingHrs = 0 
+while (day< NUM_OF_WORKING_DAYS && totalWorkingHrs <=MAXIMUM_WORKING_HOURS)
 {
  workingHours = checkEmployerrAttendence()
+ totalWorkingHrs += workingHours
  dailyWage = calculateEmployeeWage(workingHours)
  totalWage += dailyWage
  day += 1
 }
-
 console.log(`Total Wage of Employee is ${totalWage}`)
