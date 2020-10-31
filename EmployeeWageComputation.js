@@ -4,11 +4,20 @@ const WAGE_PER_HOUR = 20
 const NUM_OF_WORKING_DAYS = 20 
 const MAXIMUM_WORKING_HOURS = 100
 
+day = 0
+totalWage = 0
+totalWorkingHrs = 0 
+
+employeeDailyWage = []
+
 function checkEmployerrAttendence(){
-    var attendaceStatus = Math.floor(Math.random() * 3);
+    return Math.floor(Math.random() * 3)
+}
+
+function getEmployeeWorkingHours(){
     var employeeWorkingHours
 
-    switch(attendaceStatus){
+    switch(checkEmployerrAttendence()){
         case IS_PART_TIME:
             employeeWorkingHours = 4
             break
@@ -26,16 +35,18 @@ function calculateEmployeeWage(workHrs){
     return WAGE_PER_HOUR * workHrs
 }
 
-day = 0
-totalWage = 0
-totalWorkingHrs = 0 
+
 while (day< NUM_OF_WORKING_DAYS && totalWorkingHrs <=MAXIMUM_WORKING_HOURS)
 {
- workingHours = checkEmployerrAttendence()
+ workingHours = getEmployeeWorkingHours()
  totalWorkingHrs += workingHours
  dailyWage = calculateEmployeeWage(workingHours)
+ employeeDailyWage.push(dailyWage)
  totalWage += dailyWage
  day += 1
 }
+employeeDailyWage.forEach(function(salary,days){
+    console.log(`Day ${days+1} Wage -->${salary}`)
+})
 console.log(`Total Working hrs of Employee is ${totalWorkingHrs}`)
 console.log(`Total Wage of Employee is ${totalWage}`)
