@@ -10,15 +10,12 @@ function checkEmployerrAttendence(){
 
     switch(attendaceStatus){
         case IS_PART_TIME:
-            console.log("Employee is PART TIME..!!")
             employeeWorkingHours = 4
             break
         case IS_FULL_TIME:
-            console.log("Employee is FULL TIME..!!")
             employeeWorkingHours = 8
             break
         default:
-            console.log("Employee is ABSENT...!!")
             employeeWorkingHours = 0
             break
     }
@@ -40,4 +37,5 @@ while (day< NUM_OF_WORKING_DAYS && totalWorkingHrs <=MAXIMUM_WORKING_HOURS)
  totalWage += dailyWage
  day += 1
 }
+console.log(`Total Working hrs of Employee is ${totalWorkingHrs}`)
 console.log(`Total Wage of Employee is ${totalWage}`)
